@@ -14,7 +14,16 @@ const String BOT_NICK = "MeRnA";
 const String STATUS_TEXT = "بوت ميرنا لطلبي اضف almuftrs";
 // ===================================================
 
-void main() => MernaLegendBot().run();
+void main() async {
+  // --- إضافة البورت الوهمي لخداع سيرفر Render المجاني ---
+  var port = int.parse(Platform.environment['PORT'] ?? '8080');
+  HttpServer.bind(InternetAddress.anyIPv4, port).then((server) {
+    print("🌐 Fake Web Server started on port $port (Render Trick)");
+  });
+  // --------------------------------------------------
+
+  MernaLegendBot().run();
+}
 
 class MernaLegendBot {
   late xmpp.Connection connection;
